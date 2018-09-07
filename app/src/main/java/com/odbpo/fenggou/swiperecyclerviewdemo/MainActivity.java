@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setSwipeMenuCreator(mSwipeMenuCreator);
         // 菜单点击监听。
         rv.setSwipeMenuItemClickListener(mMenuItemClickListener);
+        //真实网络请求数据返回写法
+//        rv.setSwipeMenuItemClickListener(new MySwipeMenuItemClickListener(new ArrayList<Integer>()));
     }
 
     /**
@@ -103,5 +105,34 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+//    /**
+//     * 真实网络请求数据返回写法
+//     */
+//    class MySwipeMenuItemClickListener implements SwipeMenuItemClickListener{
+//        private List<Integer> mData;
+//
+//        public MySwipeMenuItemClickListener(List<Integer> mData) {
+//            this.mData = mData;
+//        }
+//
+//        @Override
+//        public void onItemClick(SwipeMenuBridge menuBridge) {
+//            // 任何操作必须先关闭菜单，否则可能出现Item菜单打开状态错乱。
+//            menuBridge.closeMenu();
+//
+//            int direction = menuBridge.getDirection(); // 左侧还是右侧菜单。
+//            int adapterPosition = menuBridge.getAdapterPosition(); // RecyclerView的Item的position。
+//            int menuPosition = menuBridge.getPosition(); // 菜单在RecyclerView的Item中的Position。
+//
+//            if (direction == SwipeMenuRecyclerView.RIGHT_DIRECTION) {
+////                Toast.makeText(MainActivity.this, "list第" + adapterPosition + "; 右侧菜单第" + menuPosition, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "list第" + mData.get(adapterPosition) + "; 右侧菜单第" + menuPosition, Toast.LENGTH_SHORT).show();
+//            } else if (direction == SwipeMenuRecyclerView.LEFT_DIRECTION) {
+////                Toast.makeText(MainActivity.this, "list第" + adapterPosition + "; 左侧菜单第" + menuPosition, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "list第" + mData.get(adapterPosition) + "; 左侧菜单第" + menuPosition, Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 
 }
